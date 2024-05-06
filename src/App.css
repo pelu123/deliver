@@ -1,0 +1,41 @@
+.page-title {
+    text-align: center;
+    font-size: 50px;
+}
+
+.card-content {
+  justify-content: center;
+  background-color: rgb(63, 63, 63);
+}
+
+.cart-actions {
+  display: grid;
+  place-items: center;
+}
+
+.shopping-cart-container {
+  width: 500px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    place-items: center;
+  }
+  
+  @media (max-width: 800px) {
+    .grid-container {
+      justify-content: center;
+      margin-left: 70px;
+      margin-right: auto;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+  }
+  

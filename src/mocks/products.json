@@ -1,0 +1,218 @@
+[
+    {
+        "id": 1,
+        "name": "Black cap",
+        "price": 55,
+        "category": "Caps",
+        "description": "An elegant and minimalist black cap, perfect for a casual and modern style.",
+        "image": "/imgs/black.hat.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Black headphones",
+        "price": 75,
+        "category": "Headphones",
+        "description": "Black headphones with a modern design, perfect for quality audio experiences.",
+        "image": "/imgs/black.headphones.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Black hoodie",
+        "price": 30,
+        "category": "Hoodies",
+        "description": "Black hoodie: simple design, versatile, comfortable, perfect for casual or athletic wear.",
+        "image": "/imgs/black.hoodie.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Black jogger",
+        "price": 45,
+        "category": "Pants",
+        "description": "Black jogger pants: sleek design, white drawstrings, comfortable fit, ideal for stylish, relaxed wear.",
+        "image": "/imgs/black.jogger.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Black t-shirt",
+        "price": 24,
+        "category": "T-shirts",
+        "description": "Black t-shirt: classic, versatile, essential wardrobe piece, perfect for any casual or layered look.",
+        "image": "/imgs/black.shirt.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Blue cap",
+        "price": 55,
+        "category": "Caps",
+        "description": "An elegant and minimalist blue cap, perfect for a casual and modern style.",
+        "image": "/imgs/blue.hat.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Smart-watch",
+        "price": 80,
+        "category": "Smart-watch",
+        "description": "Modern smartwatch: blue strap, minimalist clock interface, elegant design, perfect for tech-savvy style.",
+        "image": "/imgs/blue.smartwatch.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Futuristic boots",
+        "price": 120,
+        "category": "Boots",
+        "description": "Metallic silver and gold shoe: stylish, sleek lines, modern sci-fi aesthetic, luxurious appearance.",
+        "image": "/imgs/futuristic.boots.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Green dressing shorts",
+        "price": 27,
+        "category": "Shorts",
+        "description": "Green shorts: textured, color contrast, stylish, fashion-forward, perfect for a fresh, summery look.",
+        "image": "/imgs/green.shorts.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Grey hoodie",
+        "price": 30,
+        "category": "Hoodies",
+        "description": "Grey hoodie: simple design, versatile, comfortable, perfect for casual or athletic wear.",
+        "image": "/imgs/grey.hoodie.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Ligth blue cap",
+        "price": 55,
+        "category": "Caps",
+        "description": "An elegant and minimalist ligth blue  cap, perfect for a casual and modern style.",
+        "image": "/imgs/ligth.blue.hat.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Blue suede shoes",
+        "price": 70,
+        "category": "Shoes",
+        "description": "Blue suede shoes: brown soles, comfort meets elegance, perfect for a sophisticated and fashionable look.",
+        "image": "/imgs/m.elegant.blue.shoes.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Elegant purple loafers",
+        "price": 80,
+        "category": "Shoes",
+        "description": "Purple leather loafers: glossy finish, vibrant orange interior, luxurious, stylish, perfect for sophisticated fashion.",
+        "image": "/imgs/m.elegant.purple.shoes.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Pink vans(casual)",
+        "price": 40,
+        "category": "Shoes",
+        "description": "Stylish pink sneakers: contrasting colors, sleek design, comfort, perfect for dynamic and fashionable looks.",
+        "image": "/imgs/pink.vans.shoes.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Sunglasses",
+        "price": 27,
+        "category": "Sunglasses",
+        "description": "Sunglasses: pink lenses, vibrant glow, grey background, striking contrast, stylish accessory.",
+        "image": "/imgs/purple.sunglass.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Red cap",
+        "price": 50,
+        "category": "Caps",
+        "description": "An elegant and minimalist red cap, perfect for a casual and modern style.",
+        "image": "/imgs/red.hat.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Red Headphones",
+        "price": 75,
+        "category": "Headphones",
+        "description": "Red headphones with a modern design, perfect for quality audio experiences.",
+        "image": "/imgs/red.headphones.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Red jogger",
+        "price": 45,
+        "category": "Pants",
+        "description": "Red jogger pants: sleek design, white drawstrings, comfortable fit, ideal for stylish, relaxed wear.",
+        "image": "/imgs/red.jogger.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Orange shoes(casual)",
+        "price": 50,
+        "category": "Shoes",
+        "description": "Trendy sneakers: vibrant orange/blue, white laces, modern design, perfect for stylish, active wear.",
+        "image": "/imgs/u.orange.shoes.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Heel shoes",
+        "price": 65,
+        "category": "Shoes",
+        "description": "Elegant grey shoes: golden adornments, glossy finish, luxurious style, perfect for sophisticated fashion.",
+        "image": "/imgs/w.elegant.shoes.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Futuristic heel bots",
+        "price": 80,
+        "category": "Shoes",
+        "description": "Avant-garde boots: bold shapes, contrasting colors, innovative, artistic expression of modern and traditional fashion.",
+        "image": "/imgs/w.futuristic.boots.jpg"
+    },
+    {
+        "id": 21,
+        "name": "Greay shorts(woman)",
+        "price": 20,
+        "category": "Shorts",
+        "description": "Grey shorts: smooth texture, elegant design, neutral backdrop, ideal for chic, comfortable fashion.",
+        "image": "/imgs/w.grey.shorts.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Sandals",
+        "price": 13,
+        "category": "Shoes",
+        "description": "Stylish sandals: light blue straps, woven base, casual elegance, perfect for summer fashion.",
+        "image": "/imgs/w.sandals.jpg"
+    },
+    {
+        "id": 24,
+        "name": "White jogger(woman)",
+        "price": 23,
+        "category": "Pants",
+        "description": "Grey sweatpants: comfortable, stylish, perfect for relaxed or active wear.",
+        "image": "/imgs/w.white.jogger.jpg"
+    },
+    {
+        "id": 25,
+        "name": "White t-shirt(woman)",
+        "price": 24,
+        "category": "T-shirts",
+        "description": "White t-shirt: classic, versatile, essential wardrobe piece, perfect for any casual or layered look.",
+        "image": "/imgs/w.white.shirt.jpg"
+    },
+    {
+        "id": 26,
+        "name": "White headphones",
+        "price": 77,
+        "category": "Headphones",
+        "description": "White headphones with a modern design, perfect for quality audio experiences.",
+        "image": "/imgs/white.headphones.jpg"
+    },
+    {
+        "id": 27,
+        "name": "White t-shirt",
+        "price": 27,
+        "category": "T-shirts",
+        "description": "White t-shirt: classic, versatile, essential wardrobe piece, perfect for any casual or layered look.",
+        "image": "/imgs/white.shirt.jpg"
+    }
+]
