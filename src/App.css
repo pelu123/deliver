@@ -8,14 +8,19 @@
   background-color: rgb(63, 63, 63);
 }
 
+.cart-item-content {
+  background-color: rgb(63, 63, 63);
+}
+
+.shopping-cart-container {
+  background-color: black;
+}
+
 .cart-actions {
   display: grid;
   place-items: center;
 }
 
-.shopping-cart-container {
-  width: 500px;
-}
 
 .card-container {
     display: grid;
