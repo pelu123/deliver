@@ -1,21 +1,11 @@
-import { Card } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActions, IconButton, Button } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, CardActions, IconButton, Button } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "../App.css";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { useCartContext } from "../context/CartContext";
+import { Product } from "../types";
 
-type StoreProductProps = {
-  id: number
-  price: number
-  name: string
-  category: string
-  description: string
-  image: string
-}
+interface StoreProductProps extends Product {}
 
 
 export function Cards({ id, name, category, description, price, image }: StoreProductProps) {
@@ -76,17 +66,4 @@ export function Cards({ id, name, category, description, price, image }: StorePr
   );
 }
 
-{
-  /* { Number(quantity) > 0 ?( // Asegúrate de que quantity sea un número
-                <IconButton color="primary" aria-label="add to shopping cart" onClick={() => increaseCartQuantity(product.id)}>
-                <AddShoppingCartIcon />
-                <Chip color="warning">{quantity}</Chip>
-              </IconButton>
-              ): <div className='cart-actions'>
-                <Button size='medium' onClick={() => increaseCartQuantity(product.id)}>+</Button>
-                 {quantity} {/* Asegúrate de renderizar la cantidad aquí */
-}
-//      <Button size='medium' color='error' onClick={() => decreaseCartQuantity(product.id)}>-</Button>
-//      <Button variant='contained' color='error' onClick={() => removeFromCart(product.id)}>Remove</Button>
-//   </div>
-// }
+

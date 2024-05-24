@@ -3,6 +3,7 @@ import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage.ts";
 
 
+
 type CartProviderProps = {
     children: ReactNode
 }
@@ -44,6 +45,8 @@ export function CartProvider ({ children }: CartProviderProps){
     const openCart = () => setIsOpen(true)
 
     const closeCart = () => setIsOpen(false)
+
+    
 
     function getItemQuantity(id: number) {
         return cartItems.find(item => item.id === id)?.quantity || 0

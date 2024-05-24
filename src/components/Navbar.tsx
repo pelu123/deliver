@@ -1,12 +1,20 @@
 import { useCartContext } from "../context/CartContext";
-import { Navbar as NavbarUI, NavbarBrand, NavbarContent, NavbarItem, Button, Chip, } from "@nextui-org/react";
-import { Link } from 'react-router-dom';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { Navbar as NavbarUI, NavbarBrand, NavbarContent, NavbarItem, Button, Chip } from "@nextui-org/react";
+import { Link } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Filters } from "./Filters";
+import { FilterValue } from "../types";
 
 
 
-export default function Navbar() {
+interface Props {
+  filterSelected: FilterValue;
+  onFilterChange: (filter: FilterValue) => void;
+}
+
+export default function Navbar({ filterSelected, onFilterChange }: Props) {
   const { openCart, cartQuantity } = useCartContext();
+
 
   return (
     <NavbarUI className="dark text-foreground bg-background">
@@ -19,10 +27,11 @@ export default function Navbar() {
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" to="/products">
-            Products
-          </Link>
+        <NavbarItem>          
+            <Filters
+              filterSelected={filterSelected}
+              onFilterChange={onFilterChange}
+            />                  
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" to="/about">
@@ -38,8 +47,4 @@ export default function Navbar() {
       </NavbarContent>
     </NavbarUI>
   );
-} 
-
-
- 
-
+}
