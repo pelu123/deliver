@@ -35,7 +35,7 @@
         "id": 5,
         "name": "Black t-shirt",
         "price": 24,
-        "category": "T-shirts",
+        "category": "Tshirts",
         "description": "Black t-shirt: classic, versatile, essential wardrobe piece, perfect for any casual or layered look.",
         "image": "/imgs/black.shirt.jpg"
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "name": "Smart-watch",
         "price": 80,
-        "category": "Smart-watch",
+        "category": "Smartwatch",
         "description": "Modern smartwatch: blue strap, minimalist clock interface, elegant design, perfect for tech-savvy style.",
         "image": "/imgs/blue.smartwatch.jpg"
     },
@@ -81,10 +81,10 @@
     },
     {
         "id": 10,
-        "name": "Ligth blue cap",
+        "name": "Turquoise cap",
         "price": 55,
         "category": "Caps",
-        "description": "An elegant and minimalist ligth blue  cap, perfect for a casual and modern style.",
+        "description": "An elegant and minimalist turquoise cap, perfect for a casual and modern style.",
         "image": "/imgs/ligth.blue.hat.jpg"
     },
     {
@@ -195,7 +195,7 @@
         "id": 25,
         "name": "White t-shirt(woman)",
         "price": 24,
-        "category": "T-shirts",
+        "category": "Tshirts",
         "description": "White t-shirt: classic, versatile, essential wardrobe piece, perfect for any casual or layered look.",
         "image": "/imgs/w.white.shirt.jpg"
     },
@@ -211,7 +211,7 @@
         "id": 27,
         "name": "White t-shirt",
         "price": 27,
-        "category": "T-shirts",
+        "category": "Tshirts",
         "description": "White t-shirt: classic, versatile, essential wardrobe piece, perfect for any casual or layered look.",
         "image": "/imgs/white.shirt.jpg"
     }

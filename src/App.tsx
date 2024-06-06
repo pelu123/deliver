@@ -5,33 +5,25 @@ import Navbar from './components/Navbar'
 import { Products } from './pages/Products'
 import { About } from './pages/About'
 import { CartProvider } from './context/CartContext'
-import { useState } from 'react'
-import { FilterValue } from './types'
-import { PRODUCTS_FILTER } from './consts'
-
-
-
+import { FilterProvider } from './context/FilterContext'
 
 
 function App() {
-  const [filterSelected, setFilterSelected] = useState<FilterValue>(PRODUCTS_FILTER.ALL)
-  const onFilterChange = (filter: FilterValue): void => {
-    setFilterSelected(filter)
-  }
- 
-
+  
   return (
     <>
+    <FilterProvider>
       <CartProvider>
-        <Navbar filterSelected={filterSelected} onFilterChange={onFilterChange}/>
+        <Navbar />
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products filterSelected={filterSelected} onFilterChange={onFilterChange}/>} />
+            <Route path="/" element={<Home />} />            
+            <Route path="/products/:category?" element={<Products />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </Container>
       </CartProvider>
+      </FilterProvider>
     </>
   );
 }

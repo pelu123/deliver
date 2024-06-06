@@ -1,54 +1,126 @@
 import '../App.css'
 import { Col, Row } from 'react-bootstrap'
-import { Cards } from '../components/Card'
 import storeProduct from '../mocks/products.json'
- import { FilterValue } from '../types'
-import { PRODUCTS_FILTER } from '../consts'
-import { Filters } from '../components/Filters'
-import { useLocation } from 'react-router-dom';
-import queryString from 'query-string';
-import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom'
+import { Card, CardContent, CardMedia, Typography, CardActions, IconButton, Button } from "@mui/material";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import "../App.css";
+import { formatCurrency } from "../utilities/formatCurrency";
+import { useCartContext } from "../context/CartContext";
+//import { Product } from '../interfaces';
 
-interface Props {
-  filterSelected: FilterValue
-  onFilterChange: (filter: FilterValue) => void
-}
 
-export function Products({ onFilterChange }: Props) {
-  const location = useLocation();
-  const { filter } = queryString.parse(location.search);
-  let filterValue: FilterValue = PRODUCTS_FILTER.ALL;
 
-  if (Object.values(PRODUCTS_FILTER).includes(filter as FilterValue)) {
-    filterValue = filter as FilterValue;
-  }
+export function Products() {
+  const category = useParams().category
+  const location = useLocation()
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useCartContext();
+  //const quantity = getItemQuantity(id);
+  
 
-  const [filterSelected, setFilterSelected] = useState(filterValue);
+  const searchParams = new URLSearchParams(location.search)
+  const productCategory = searchParams.get('category')
 
-  useEffect(() => {
-    setFilterSelected(filterValue);
-    onFilterChange(filterValue);
-  }, [filter, onFilterChange]);
+  const filteredProduct = category
+    ? storeProduct.filter((product) => product.category === category)
+    : storeProduct;
 
-  const filteredProducts =
-    filterSelected === PRODUCTS_FILTER.ALL
-      ? storeProduct
-      : storeProduct.filter((product) => product.category === filterSelected);
   return (
     <>
       <h1 className="page-title">PRODUCTS</h1>
-      <Filters
-        filterSelected={filterSelected}
-        onFilterChange={onFilterChange}
-      />
+    <div className='products-container'>
       <Row className="card-container">
-        {filteredProducts.map((product) => (
+        {filteredProduct.map((product) => (          
           <Col key={product.id}>
-            <Cards {...product} />
+            <div
+              style={{ maxWidth: "30%", margin: "1.66%", marginBottom: "20px" }}
+              className="card-container"
+            >
+              <Card
+                sx={{ maxWidth: 280 }}
+                key={storeProduct[0].id}
+                className="justify-center"
+              >
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={product.image}
+                  alt={category}
+                />
+                <CardContent className="card-content">
+                  <Typography gutterBottom variant="h5" component="div">
+                    {product.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {product.description}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {productCategory}
+                  </Typography>
+                  <Typography>{formatCurrency(product.price)}</Typography>
+                </CardContent>
+                <CardActions className="card-content">
+                  {getItemQuantity(product.id) === 0 ? (
+                    <IconButton
+                      color="primary"
+                      aria-label="add to shopping cart"
+                      onClick={() => increaseCartQuantity(product.id)}
+                    >
+                      <AddShoppingCartIcon />
+                    </IconButton>
+                  ) : (
+                    <div className="cart-actions">
+                      <Button
+                        size="medium"
+                        onClick={() => increaseCartQuantity(product.id)}
+                      >
+                        +
+                      </Button>
+                      {getItemQuantity(product.id)}
+                      <Button
+                        size="medium"
+                        color="error"
+                        onClick={() => decreaseCartQuantity(product.id)}
+                      >
+                        -
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="error"
+                        onClick={() => removeFromCart(product.id)}
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                  )}
+                </CardActions>
+              </Card>
+            </div>
           </Col>
         ))}
       </Row>
+  </div>
     </>
   );
 }
 
+{/* <Cards
+              category={product.category}
+              name={product.name}
+              price={product.price}
+              image={product.image}
+              id={product.id}
+              description={product.description}
+            /> */} 
+            
+            // const filteredProduct = storeProduct.filter((product) => {
+  //   if(!category) {
+  //     return true
+  //   }
+  //   return product.category === state.categoryFilter
+  // })

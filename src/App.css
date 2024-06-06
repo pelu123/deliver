@@ -23,10 +23,11 @@
 
 
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    place-items: center;
+  display: grid; /* Enable grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust columns as needed */
+  gap: 1px; /* Add spacing between cards */
+  justify-items: center; /* Center cards horizontally */
+  align-items: center; 
   }
   
   @media (max-width: 800px) {

@@ -2,20 +2,24 @@ import { useCartContext } from "../context/CartContext";
 import { Navbar as NavbarUI, NavbarBrand, NavbarContent, NavbarItem, Button, Chip } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Filters } from "./Filters";
-import { FilterValue } from "../types";
+import { CategoryDrpdown } from "./CategoryDropdown";
 
 
-
-interface Props {
-  filterSelected: FilterValue;
-  onFilterChange: (filter: FilterValue) => void;
-}
-
-export default function Navbar({ filterSelected, onFilterChange }: Props) {
+export default function Navbar() {
   const { openCart, cartQuantity } = useCartContext();
-
-
+  const categories = [
+    "Caps",
+    "Pants",
+    "Shoes",
+    "Headphones",
+    "Tshirts",
+    "Sunglasses",
+    "Smartwatch",
+    "Hoodies",
+    "Boots",
+    "Shorts"
+  ]
+   
   return (
     <NavbarUI className="dark text-foreground bg-background">
       <NavbarBrand>
@@ -27,12 +31,9 @@ export default function Navbar({ filterSelected, onFilterChange }: Props) {
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem>          
-            <Filters
-              filterSelected={filterSelected}
-              onFilterChange={onFilterChange}
-            />                  
-        </NavbarItem>
+        <NavbarItem>
+          <CategoryDrpdown categories={categories}/>         
+        </NavbarItem> 
         <NavbarItem>
           <Link color="foreground" to="/about">
             About Us

@@ -3,12 +3,9 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "../App.css";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { useCartContext } from "../context/CartContext";
-import { Product } from "../types";
+import { Product } from "../interfaces";
 
-interface StoreProductProps extends Product {}
-
-
-export function Cards({ id, name, category, description, price, image }: StoreProductProps) {
+export function Cards({ id, name, category, description, price, image }: Product) {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -16,16 +13,20 @@ export function Cards({ id, name, category, description, price, image }: StorePr
     removeFromCart,
   } = useCartContext();
   const quantity = getItemQuantity(id);
-  return (
+
+  return  (
     <div style={{ maxWidth: '30%', margin: '1.66%' }} className="card-container" >
       <Card sx={{ maxWidth: 280 }} key={id} className="justify-center">
-        <CardMedia component="img" height="140" image={image} alt={category} />
+        <CardMedia component="img" height="140" image={image}  alt={category}/>
         <CardContent className="card-content">
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {description}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {category}
           </Typography>
           <Typography>{formatCurrency(price)}</Typography>
         </CardContent>
