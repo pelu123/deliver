@@ -7,7 +7,6 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "../App.css";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { useCartContext } from "../context/CartContext";
-//import { Product } from '../interfaces';
 
 
 
@@ -20,7 +19,6 @@ export function Products() {
     decreaseCartQuantity,
     removeFromCart,
   } = useCartContext();
-  //const quantity = getItemQuantity(id);
   
 
   const searchParams = new URLSearchParams(location.search)
@@ -32,7 +30,7 @@ export function Products() {
 
   return (
     <>
-      <h1 className="page-title">PRODUCTS</h1>
+      <h1 className="page-title">{category}</h1>
     <div className='products-container'>
       <Row className="card-container">
         {filteredProduct.map((product) => (          
@@ -109,18 +107,3 @@ export function Products() {
   );
 }
 
-{/* <Cards
-              category={product.category}
-              name={product.name}
-              price={product.price}
-              image={product.image}
-              id={product.id}
-              description={product.description}
-            /> */} 
-            
-            // const filteredProduct = storeProduct.filter((product) => {
-  //   if(!category) {
-  //     return true
-  //   }
-  //   return product.category === state.categoryFilter
-  // })

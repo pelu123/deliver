@@ -20,7 +20,7 @@ export const CategoryDrpdown: React.FC<CategoryDropdownProps> = ({categories}: C
 
   return (
     <>
-      <Dropdown>
+      <Dropdown className="dark text-foreground bg-background">
         <NavbarItem>
           <DropdownTrigger>
             <Button
