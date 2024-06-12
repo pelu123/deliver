@@ -6,6 +6,7 @@ import { Products } from './pages/Products'
 import { About } from './pages/About'
 import { CartProvider } from './context/CartContext'
 import { FilterProvider } from './context/FilterContext'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </Container>
+        <Footer />
       </CartProvider>
       </FilterProvider>
     </>

@@ -7,15 +7,15 @@ interface CategoryDropdownProps {
   categories: string[];
 }
 
-export const CategoryDrpdown: React.FC<CategoryDropdownProps> = ({categories}: CategoryDropdownProps) => {
+export const CategoryDrpdown: React.FC<CategoryDropdownProps> = ({categories,}: CategoryDropdownProps) => {
   const navigate = useNavigate();
   const handleCategoryClick = (category: string) => {
-    if(products){
-      const product = products.find((p) => p.category === category)
-      navigate(`/products/${category}`, {state: {product}}); 
-    }else{
-      console.log("products not found")
-    }   
+    if (products) {
+      const product = products.find((p) => p.category === category);
+      navigate(`/products/${category}`, { state: { product } });
+    } else {
+      console.log("products not found");
+    }
   };
 
   return (
@@ -24,13 +24,14 @@ export const CategoryDrpdown: React.FC<CategoryDropdownProps> = ({categories}: C
         <NavbarItem>
           <DropdownTrigger>
             <Button
-            disableRipple
-            className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-            radius="sm"
-            variant="light">
+              disableRipple
+              className="p-0 bg-transparent data-[hover=true]:bg-transparent "
+              radius="sm"
+              variant="light"
+            >
               Products
             </Button>
-          </DropdownTrigger>          
+          </DropdownTrigger>
         </NavbarItem>
         <DropdownMenu aria-label="Categories">
           {categories.map((category) => {
@@ -39,7 +40,7 @@ export const CategoryDrpdown: React.FC<CategoryDropdownProps> = ({categories}: C
                 textValue="category"
                 key={category}
                 onClick={() => handleCategoryClick(category)}
-                href={(`/products/${category}`)}
+                href={`/products/${category}`}
               >
                 {category}
               </DropdownItem>

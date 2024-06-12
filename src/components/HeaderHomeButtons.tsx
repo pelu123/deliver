@@ -8,27 +8,27 @@ type Props = {
 }
 
 export default function HeaderHomeButtons({category}: Props) {
-    const navigate = useNavigate();
-    const handleCategoryClick = (category: string) => {
-        if(category === "Hoodies"){
-            const product = products.filter((p) => p.category === category)
-            navigate(`/products/${category}`, {state: {product}});
-        }
+  const navigate = useNavigate();
+  const handleCategoryClick = (category: string) => {
+    if (category === "Hoodies") {
+      const product = products.filter((p) => p.category === category);
+      navigate(`/products/${category}`, { state: { product } });
     }
-    return (
-      <div className="header-home-buttons">
-        {category === "Hoodies" && (
-          <Button
-            variant="flat"
-            style={{ marginRight: "8px" }}
-            onClick={() => handleCategoryClick(category)}
-          >
-            Hoodies
-          </Button>
-        )}
-        <Link to="/about">
-          <Button variant="ghost" >More about DELIVER</Button>
-        </Link>
-      </div>
-    );
+  };
+  return (
+    <div className="header-home-buttons">
+      {category === "Hoodies" && (
+        <Button
+          variant="flat"
+          style={{ marginRight: "8px" }}
+          onClick={() => handleCategoryClick(category)}
+        >
+          Hoodies
+        </Button>
+      )}
+      <Link to="/about">
+        <Button variant="ghost">More about DELIVER</Button>
+      </Link>
+    </div>
+  );
 }

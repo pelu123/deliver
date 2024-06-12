@@ -3,11 +3,10 @@ import { useCartContext } from "../context/CartContext";
 import { CartItem } from "./CartItem";
 import { Button, Drawer, List, Box, Typography } from "@mui/material";
 import { formatCurrency } from "../utilities/formatCurrency";
-import storeProduct from "../mocks/products.json"
+import storeProduct from "../mocks/products.json";
+import { useState, useEffect } from "react";
 
 
-
- 
 
 type ShoppingCartProps = {
     isOpen: boolean
@@ -15,16 +14,27 @@ type ShoppingCartProps = {
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useCartContext();
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  });
+
   return (
-    <div className="shopping-cart-container">
+    <div className="drawer-container">
       <Drawer
         anchor="right"
         open={isOpen}
         onClose={closeCart}
         PaperProps={{
           style: {
-            backgroundColor: "grey",
-            maxWidth: "35%",
+            backgroundColor: "GrayText",
+            maxWidth: isMobile ? "60%" : "35%",
           },
         }}
       >
@@ -46,10 +56,15 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             <CartItem key={product.id} {...product} />
           ))}
           <div className="ms-auto fw-bold fs-5">
-            Total {formatCurrency(cartItems.reduce((total, cartProduct) => {
-                const product = storeProduct.find(p => p.id === cartProduct.id)
-                return total + (product?.price || 0) * cartProduct.quantity
-            }, 0))}
+            Total{" "}
+            {formatCurrency(
+              cartItems.reduce((total, cartProduct) => {
+                const product = storeProduct.find(
+                  (p) => p.id === cartProduct.id
+                );
+                return total + (product?.price || 0) * cartProduct.quantity;
+              }, 0)
+            )}
           </div>
         </List>
       </Drawer>

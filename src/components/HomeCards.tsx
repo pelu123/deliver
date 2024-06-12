@@ -5,41 +5,48 @@ import { useCartContext } from "../context/CartContext";
 
 
 export function HomeCards() {
-    const { increaseCartQuantity } = useCartContext();
+  const { increaseCartQuantity } = useCartContext();
 
-    const [start, setStart] = useState(0);
-    const [cardsToShow, setCardsToShow] = useState(3);
+  const [start, setStart] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(3);
 
-    useEffect(() => {
-        const updateCardsToShow = () => {
-            if(window.innerWidth < 640) {
-                setCardsToShow(2);
-            } else {
-                setCardsToShow(3);
-            }
-        }
-        window.addEventListener('resize', updateCardsToShow);
-        updateCardsToShow();
+  useEffect(() => {
+    const updateCardsToShow = () => {
+      if (window.innerWidth < 640) {
+        setCardsToShow(2);
+      } else {
+        setCardsToShow(3);
+      }
+    };
+    window.addEventListener("resize", updateCardsToShow);
+    updateCardsToShow();
 
-        return () => window.removeEventListener('resize', updateCardsToShow)
-    }, [])
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, []);
 
-    
+  const handleNext = () => {
+    setStart((prevStart) => prevStart + cardsToShow);
+  };
 
-    const handleNext = () => {
-        setStart(prevStart => prevStart + cardsToShow);
-    }
+  const handlePrev = () => {
+    setStart((prevStart) => prevStart - cardsToShow);
+  };
 
-    const handlePrev = () => {
-        setStart(prevStart => prevStart - cardsToShow);
-    }
-
-    return (
-      <>
-        <div className="gap-2 grid grid-cols-2 sm:grid-cols-3 md:ml-3 md:mr-3">
-          {products.slice(start, start + cardsToShow).map((product) => (
-            <Tooltip key={product.id} content="Add to cart" showArrow={true} color="success">
-            <Card key={product.id} isPressable onPress={() => increaseCartQuantity(product.id)}>
+  return (
+    <>
+      <div className="gap-2 grid grid-cols-2 sm:grid-cols-3 md:ml-3 md:mr-3">
+        {products.slice(start, start + cardsToShow).map((product) => (
+          <Tooltip
+            key={product.id}
+            content="Add to cart"
+            showArrow={true}
+            color="success"
+          >
+            <Card
+              key={product.id}
+              isPressable
+              onPress={() => increaseCartQuantity(product.id)}
+            >
               <CardBody className="overflow-visible p-0">
                 <Image
                   shadow="sm"
@@ -56,17 +63,21 @@ export function HomeCards() {
                 <p className="text-default-500">${product.price}</p>
               </CardFooter>
             </Card>
-        </Tooltip>
-          ))}
-        </div>
-        <div className="flex justify-between w-full mt-4 ">
-          <Button disabled={start === 0} onClick={handlePrev} className="ml-5">
-            Prev
-          </Button>
-          <Button disabled={start + cardsToShow >= products.length} onClick={handleNext} className="mr-5">
-            Next
-          </Button>
-        </div>
-      </>
-    );
+          </Tooltip>
+        ))}
+      </div>
+      <div className="flex justify-between w-full mt-4 ">
+        <Button disabled={start === 0} onClick={handlePrev} className="ml-5">
+          Prev
+        </Button>
+        <Button
+          disabled={start + cardsToShow >= products.length}
+          onClick={handleNext}
+          className="mr-5"
+        >
+          Next
+        </Button>
+      </div>
+    </>
+  );
 }

@@ -1,11 +1,13 @@
 import { useCartContext } from "../context/CartContext";
-import { Navbar as NavbarUI, NavbarBrand, NavbarContent, NavbarItem, Button, Chip } from "@nextui-org/react";
+import { Navbar as NavbarUI, NavbarBrand, NavbarContent, NavbarItem, Button, Chip, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CategoryDrpdown } from "./CategoryDropdown";
+import { useState } from "react";
 
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const { openCart, cartQuantity } = useCartContext();
   const categories = [
     "Caps",
@@ -17,11 +19,43 @@ export default function Navbar() {
     "Smartwatch",
     "Hoodies",
     "Boots",
-    "Shorts"
-  ]
-   
+    "Shorts",
+  ];
+
   return (
-    <NavbarUI className="dark text-foreground bg-background">
+    <NavbarUI
+      className="dark text-foreground bg-background"
+      onMenuOpenChange={setMenuOpen}
+    >
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle
+          aria-label={menuOpen ? "close menu" : "open menu"}
+          className="sm:hidden"
+        />
+        <NavbarMenu className="dark text-foreground bg-transparent">
+          {menuOpen && (
+            <>
+              <NavbarMenuItem>
+                <Link color="foreground" to="/" className="mobile-navbar-link">
+                  Home
+                </Link>
+              </NavbarMenuItem>
+              <NavbarMenuItem>
+                <CategoryDrpdown categories={categories} />
+              </NavbarMenuItem>
+              <NavbarMenuItem>
+                <Link
+                  color="foreground"
+                  to="/about"
+                  className="mobile-navbar-link"
+                >
+                  About Us
+                </Link>
+              </NavbarMenuItem>
+            </>
+          )}
+        </NavbarMenu>
+      </NavbarContent>
       <NavbarBrand>
         <p className="font-bold text-inherit">DELIVER</p>
       </NavbarBrand>
@@ -32,8 +66,8 @@ export default function Navbar() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <CategoryDrpdown categories={categories}/>         
-        </NavbarItem> 
+          <CategoryDrpdown categories={categories} />
+        </NavbarItem>
         <NavbarItem>
           <Link color="foreground" to="/about">
             About Us
