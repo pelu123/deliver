@@ -40,7 +40,6 @@ export const CategoryDrpdown: React.FC<CategoryDropdownProps> = ({categories,}: 
                 textValue="category"
                 key={category}
                 onClick={() => handleCategoryClick(category)}
-                href={`/products/${category}`}
               >
                 {category}
               </DropdownItem>
